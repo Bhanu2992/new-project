@@ -1,11 +1,11 @@
- #get the base node image
-FROM node:latest
+#get the base node image
+FROM nginx
 
 # set the working dir for container
-WORKDIR /home/nettyfy/adminbiologyquiz
+WORKDIR /
 
 # copy the json file first
-COPY ./package.json /home/nettyfy/adminbiologyquiz
+COPY ./
 
 # install npm dependencies
 RUN npm install
@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # build the folder
-RUN CI=false npm run build
+RUN npm run build
 
 EXPOSE 3000
 
